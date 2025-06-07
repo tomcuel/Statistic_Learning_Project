@@ -384,7 +384,7 @@ axe1_contrib <- c(488, 837, 507, 813, 86, 695)
 axe2_contrib <- c(507, 837, 881, 803, 537, 198)
 axe3_contrib <- c(24, 35, 507, 837, 881, 86)
 
-# Création d’un vecteur de tailles (par défaut taille moyenne = 2)
+# Création d'un vecteur de tailles (par défaut taille moyenne = 2)
 point_size <- rep(2, nrow(df))
 point_size[axe1_contrib] <- 4  # Plus gros pour Axe 1
 point_size[setdiff(axe2_contrib, axe1_contrib)] <- 2.5  # Taille moyenne pour Axe 2
@@ -430,7 +430,7 @@ pdf(file.path(directory, "barplot_height.pdf"), width = 6, height = 5)
 barplot(rev(CHA$height)[1:20], main = "Diagramme des hauteurs")
 dev.off()
 
-# Essai automatique pour k = 2 à 10 : on maximise l’indice de silhouette
+# Essai automatique pour k = 2 à 10 : on maximise l'indice de silhouette
 silhouettes <- sapply(2:10, function(k) {
   cluster_temp <- cutree(CHA, k = k)
   sil_temp <- silhouette(cluster_temp, dist_mat)
@@ -468,7 +468,7 @@ ggsave(file.path(directory, "silhouette_final.pdf"), width = 6, height = 5)
 # cluster size ave.sil.width
 # 1       1  813          0.64
 # 2       2   87          0.74
-# Moyenne de l’indice de silhouette
+# Moyenne de l'indice de silhouette
 mean_sil <- mean(final_sil[, 3])
 cat("Indice moyen de silhouette :", round(mean_sil, 3), "\n") # 0.651
 
@@ -531,7 +531,7 @@ dir.create(directory, showWarnings = FALSE)
 # cf Rapport LaTeX pour l'écriture du modèle
 # Centrer et réduire les variables explicatives est recommandé en pratique, surtout quand :
 # - les variables sont de nature hétérogène (aire, périmètre, densité, etc.)
-# - on souhaite comparer l’importance relative des variables
+# - on souhaite comparer l'importance relative des variables
 # - on utilise des méthodes à pénalisation ou sélection automatique de variables (gmmnet, lasso, ridge, etc.)
 
 
@@ -548,7 +548,7 @@ df_test <- df[!train, ]
 #sur le premier plan principal par PCA
 res_pca_app <- PCA(df_app[,-p], scale.unit=TRUE, ncp =p-1, graph=FALSE)
 res_pca_test <- PCA(df_test[,-p], scale.unit=TRUE, ncp =p-1, graph=FALSE)
-# projection des individus du test sur les axes de l’ACP d’apprentissage
+# projection des individus du test sur les axes de l'ACP d'apprentissage
 projection_test <- predict(res_pca_app, newdata = df_test[,-p])
 round(head(projection_test$coord),5)
 #     Dim.1    Dim.2    Dim.3    Dim.4    Dim.5    Dim.6    Dim.7
@@ -615,7 +615,7 @@ summary(model_full)
 # Extent          -3.094e+00  3.260e+00  -0.949  0.34255    
 # Perimeter       -4.361e-02  7.997e-03  -5.453 4.95e-08 
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 831.45  on 599  degrees of freedom
 # Residual deviance: 409.85  on 592  degrees of freedom
@@ -644,7 +644,7 @@ anova(model_full)
 # Extent           1     0.40       593     442.79    0.5273    
 # Perimeter        1    32.93       592     409.85 9.538e-09 
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # Graphiques pour la prédiction du modèle
 pred_proba <- predict(model_full, type = "response")  # proba prédite pour Kecimen
 classe_pred <- ifelse(pred_proba > 0.5, "Kecimen", "Besni")
@@ -678,7 +678,7 @@ summary(model_pca)
 # Dim.1        -1.3752     0.1143 -12.028   <2e-16
 # Dim.2         0.4907     0.1176   4.174    3e-05
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 831.45  on 599  degrees of freedom
 # Residual deviance: 447.38  on 597  degrees of freedom
@@ -701,7 +701,7 @@ anova(model_pca)
 # Dim.1  1   364.90       598     466.55 < 2.2e-16
 # Dim.2  1    19.17       597     447.38 1.196e-05
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # Graphiques pour la prédiction du modèle
 pred_proba <- predict(model_pca, type = "response")  # proba prédite pour Kecimen
 classe_pred <- ifelse(pred_proba > 0.5, "Kecimen", "Besni")
@@ -769,7 +769,7 @@ summary(model_aic)
 # ConvexArea       4.841e-04  7.924e-05   6.109 1.00e-09 
 # Perimeter       -4.163e-02  7.472e-03  -5.572 2.52e-08 
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 831.45  on 599  degrees of freedom
 # Residual deviance:  410.76  on 594  degrees of freedom
@@ -795,7 +795,7 @@ anova(model_aic)
 # ConvexArea       1     0.00       595     443.65    0.9925    
 # Perimeter        1    32.89       594     410.76 9.740e-09
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # Graphiques pour la prédiction du modèle
 pred_proba <- predict(model_aic, type = "response")  # proba prédite pour Kecimen
 classe_pred <- ifelse(pred_proba > 0.5, "Kecimen", "Besni")
@@ -855,7 +855,7 @@ summary(model_lasso)
 # Extent          -2.978e+00  3.179e+00  -0.937   0.3488    
 # Perimeter       -2.374e-02  6.036e-03  -3.934 8.37e-05 
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 831.45  on 599  degrees of freedom
 # Residual deviance:  425.96  on 593  degrees of freedom
@@ -882,7 +882,7 @@ anova(model_lasso)
 # Extent           1     0.35       594     442.83    0.5525    
 # Perimeter        1    16.87       593     425.96 3.994e-05 
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # Graphiques pour la prédiction du modèle
 pred_proba <- predict(model_lasso, type = "response")  # proba prédite pour Kecimen
 classe_pred <- ifelse(pred_proba > 0.5, "Kecimen", "Besni")
@@ -943,7 +943,7 @@ summary(model_ridge)
 # Extent          -3.094e+00  3.260e+00  -0.949  0.34255    
 # Perimeter       -4.361e-02  7.997e-03  -5.453 4.95e-08 
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 831.45  on 599  degrees of freedom
 # Residual deviance: 409.85  on 592  degrees of freedom
@@ -971,7 +971,7 @@ anova(model_ridge)
 # Extent           1     0.40       593     442.79    0.5273    
 # Perimeter        1    32.93       592     409.85 9.538e-09 
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # Graphiques pour la prédiction du modèle
 pred_proba <- predict(model_ridge, type = "response")  # proba prédite pour Kecimen
 classe_pred <- ifelse(pred_proba > 0.5, "Kecimen", "Besni")
@@ -1016,7 +1016,7 @@ df_app_scaled$y <- df_app$y
 # Validation croisée pour choisir le meilleur cost 
 tune_results <- tune(svm, y ~ ., data = df_app_scaled, kernel = 'linear', ranges = list(cost = test_cost), probability = TRUE)
 summary(tune_results)
-# Parameter tuning of ‘svm’:
+# Parameter tuning of ‘svm':
 # - sampling method: 10-fold cross validation 
 # - best parameters:
 # cost
@@ -1096,7 +1096,7 @@ ggsave(file.path(directory, "svm_linear_projection_app.pdf"), plot_svm_lin, widt
 # Validation croisée pour choisir le meilleur cost 
 tune_results <- tune(svm, y ~ ., data = df_app_scaled, kernel = 'polynomial', ranges = list(cost = test_cost), probability = TRUE)
 summary(tune_results)
-# Parameter tuning of ‘svm’:
+# Parameter tuning of ‘svm':
 # - sampling method: 10-fold cross validation 
 # - best parameters:
 # cost
@@ -1231,7 +1231,7 @@ analyse_modele_ggplot <- function(model, data, p, filename = NULL) {
   )
   # Taux de faux positifs, faux négatifs et erreur
   seuil_optimal <- seuils[which.min(df_plot$err)]
-  cat("Seuil minimisant l’erreur :", seuil_optimal, "\n")
+  cat("Seuil minimisant l'erreur :", seuil_optimal, "\n")
   
   # Graphique FP, FN, FPN
   plot_fp_fn_err <- ggplot(df_plot, aes(x = seuil)) +
@@ -1335,7 +1335,7 @@ for (model_name in names(models)) {
 #    0 247  39
 #    1  46 268
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.1416667 
-# Seuil minimisant l’erreur : 0.3623624 
+# Seuil minimisant l'erreur : 0.3623624 
 # Seuil 95% : 0.2972973 
 # AUC : 0.9259152 
 # Sauvegardé dans model_full_ROC.pdf 
@@ -1345,7 +1345,7 @@ for (model_name in names(models)) {
 #    0 250  38
 #    1  43 269
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.135 
-# Seuil minimisant l’erreur : 0.4894895 
+# Seuil minimisant l'erreur : 0.4894895 
 # Seuil 95% : 0.3073073 
 # AUC : 0.919823 
 # Sauvegardé dans model_pca_ROC.pdf 
@@ -1355,7 +1355,7 @@ for (model_name in names(models)) {
 #    0 245  38
 #    1  48 269
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.1433333 
-# Seuil minimisant l’erreur : 0.4424424 
+# Seuil minimisant l'erreur : 0.4424424 
 # Seuil 95% : 0.2882883 
 # AUC : 0.9254817 
 # Sauvegardé dans model_aic_ROC.pdf 
@@ -1365,7 +1365,7 @@ for (model_name in names(models)) {
 #    0 245  34
 #    1  48 273
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.1366667 
-# Seuil minimisant l’erreur : 0.4644645 
+# Seuil minimisant l'erreur : 0.4644645 
 # Seuil 95% : 0.3683684 
 # AUC : 0.9330636 
 # Sauvegardé dans model_lasso_ROC.pdf 
@@ -1375,7 +1375,7 @@ for (model_name in names(models)) {
 #    0 247  39
 #    1  46 268
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.1416667 
-# Seuil minimisant l’erreur : 0.3623624 
+# Seuil minimisant l'erreur : 0.3623624 
 # Seuil 95% : 0.2972973 
 # AUC : 0.9259152 
 # Sauvegardé dans model_ridge_ROC.pdf 
@@ -1385,7 +1385,7 @@ for (model_name in names(models)) {
 #    0 235  24
 #    1  58 283
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.1366667 
-# Seuil minimisant l’erreur : 0.5485485
+# Seuil minimisant l'erreur : 0.5485485
 # Seuil 95% : 0.4534535 
 # AUC : 0.9329635 
 # Sauvegardé dans model_svm_lin_ROC.pdf 
@@ -1395,7 +1395,7 @@ for (model_name in names(models)) {
 #    0 201   7
 #    1  92 300
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.165 
-# Seuil minimisant l’erreur : 0.5305305 
+# Seuil minimisant l'erreur : 0.5305305 
 # Seuil 95% : 0.5205205 
 # AUC : 0.941079 
 # Sauvegardé dans model_svm_poly_ROC.pdf 
@@ -1560,7 +1560,7 @@ summary(model_full_test)
 # Extent           9.023e+00  5.694e+00   1.585   0.1130  
 # Perimeter        5.837e-03  1.309e-02   0.446   0.6557  
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 415.23  on 299  degrees of freedom
 # Residual deviance: 176.03  on 292  degrees of freedom
@@ -1579,7 +1579,7 @@ summary(model_pca_test)
 # Dim.1        -1.5921     0.1955  -8.145  3.8e-16 ***
 # Dim.2         0.5943     0.1859   3.197 0.001389 ** 
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 415.23  on 299  degrees of freedom
 # Residual deviance: 193.43  on 297  degrees of freedom
@@ -1630,7 +1630,7 @@ summary(model_aic_test)
 # ConvexArea      -6.725e-04  1.945e-04  -3.457 0.000546 ***
 # Extent           9.109e+00  5.528e+00   1.648 0.099355 .  
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 415.23  on 299  degrees of freedom
 # Residual deviance: 178.03  on 294  degrees of freedom
@@ -1657,7 +1657,7 @@ summary(model_lasso_test)
 # Extent           9.281e+00  5.562e+00   1.669   0.0952 .
 # Perimeter       -1.726e-02  7.567e-03  -2.280   0.0226 *
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 415.23  on 299  degrees of freedom
 # Residual deviance: 180.85  on 293  degrees of freedom
@@ -1685,7 +1685,7 @@ summary(model_ridge_test)
 # Extent           9.023e+00  5.694e+00   1.585   0.1130  
 # Perimeter        5.837e-03  1.309e-02   0.446   0.6557  
 # ---
-# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Signif. codes:  0 ‘***' 0.001 ‘**' 0.01 ‘*' 0.05 ‘.' 0.1 ‘ ' 1
 # (Dispersion parameter for binomial family taken to be 1)
 # Null deviance: 415.23  on 299  degrees of freedom
 # Residual deviance: 176.03  on 292  degrees of freedom
@@ -1702,7 +1702,7 @@ df_test_scaled$y <- df_test$y
 # Validation croisée pour choisir le meilleur cost 
 tune_results <- tune(svm, y ~ ., data = df_test_scaled, kernel = 'linear', ranges = list(cost = test_cost), probability = TRUE)
 summary(tune_results)
-# Parameter tuning of ‘svm’:
+# Parameter tuning of ‘svm':
 # - sampling method: 10-fold cross validation 
 # - best parameters:
 # cost
@@ -1736,7 +1736,7 @@ summary(model_svm_lin_test)
 # Validation croisée pour choisir le meilleur cost
 tune_results <- tune(svm, y ~ ., data = df_test_scaled, kernel = 'polynomial', ranges = list(cost = test_cost), probability = TRUE)
 summary(tune_results)
-# Parameter tuning of ‘svm’:
+# Parameter tuning of ‘svm':
 # - sampling method: 10-fold cross validation 
 # - best parameters:
 # cost
@@ -1939,7 +1939,7 @@ dir.create(directory, showWarnings = FALSE)
 ## --a : Modèle et frontière de décision
 # Modèle LDA : 
 # On suppose que X|Y=k ~ N(μ_k, Σ) avec Σ commun à toutes les classes.
-# La frontière de décision est linéaire, et s’écrit entre deux classes k1 et k2 :
+# La frontière de décision est linéaire, et s'écrit entre deux classes k1 et k2 :
 # f(x) = xᵗ Σ⁻¹ (μ₁ - μ₂) - 0.5 (μ₁ᵗ Σ⁻¹ μ₁ - μ₂ᵗ Σ⁻¹ μ₂) + log(π₁ / π₂)
 
 X <- as.matrix(df_pca_app[, 1:2])
@@ -1959,7 +1959,7 @@ cat("Coefficients de la droite de séparation :\n")
 print(a)
 # Dim.1  0.5907528
 # Dim.2 -0.2066080
-cat("Ordonnée à l’origine :\n")
+cat("Ordonnée à l'origine :\n")
 print(b) # -0.02037847
 
 
@@ -1977,7 +1977,7 @@ cat("Coefficients de la droite de séparation (sans inversion de matrice) :\n")
 print(a)
 # Dim.1  0.5907528
 # Dim.2 -0.2066080
-cat("Ordonnée à l’origine (sans inversion de matrice) :\n")
+cat("Ordonnée à l'origine (sans inversion de matrice) :\n")
 print(b) # -0.02037847
 # on obtient bien les mêmes résultats 
 
@@ -2059,13 +2059,13 @@ partial_result <- analyse_modele_ggplot(
 #.   0 230  27
 #.   1  63 280
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.15 
-# Seuil minimisant l’erreur : 0.5635636 
+# Seuil minimisant l'erreur : 0.5635636 
 # Seuil 95% : 0.4234234 
 # AUC : 0.9196896
 # Sauvegardé dans model_lda_pca_ROC.pdf 
 
 seuil_bayes <- 0.5
-# Prédictions sur les données d’apprentissage
+# Prédictions sur les données d'apprentissage
 pred_app <- predict(lda_model_pca, newdata = df_pca_app)
 predproba_app <- pred_app$posterior[, "Kecimen"]  # Proba d'appartenir à la classe "Kecimen"
 Y_pred_bayes_app <- as.numeric(predproba_app > seuil_bayes)
@@ -2124,7 +2124,7 @@ cat("Erreur de test (seuil 0.5) :", err_bayes_test, "\n") # 0.1466667
 
 
 # LDA moins flexible (donc potentiellement plus biaisée) que QDA
-# mais moins de variance (donc peut améliorer la prédiction si on n’a peu d’observations)
+# mais moins de variance (donc peut améliorer la prédiction si on n'a peu d'observations)
 # en modèle d'analyse discriminante quadratique
 qda_model_pca <- qda(y ~ ., data = df_pca_app[,-4])
 qda_model_pca
@@ -2150,13 +2150,13 @@ partial_result <- analyse_modele_ggplot(
 #    0 215  21
 #    1  78 286
 # Erreur d'apprentissage avec seuil de Bayes (0.5) : 0.165 
-# Seuil minimisant l’erreur : 0.5705706
+# Seuil minimisant l'erreur : 0.5705706
 # Seuil 95% : 0.4324324 
 # AUC : 0.9125302 
 # Sauvegardé dans model_lda_lin_pca_ROC.pdf 
 
 seuil_bayes <- 0.5
-# Prédictions sur les données d’apprentissage
+# Prédictions sur les données d'apprentissage
 pred_app <- predict(qda_model_pca, newdata = df_pca_app)
 predproba_app <- pred_app$posterior[, "Kecimen"]  # Proba d'appartenir à la classe "Kecimen"
 Y_pred_bayes_app <- as.numeric(predproba_app > seuil_bayes)
@@ -2237,7 +2237,7 @@ lda_model_lin
 # Perimeter       -0.0175756089
 
 seuil_bayes <- 0.5
-# Prédictions sur les données d’apprentissage
+# Prédictions sur les données d'apprentissage
 pred_app <- predict(lda_model_lin, newdata = df_app[,-p])
 predproba_app <- pred_app$posterior[, "Kecimen"]  # Proba d'appartenir à la classe "Kecimen"
 Y_pred_bayes_app <- as.numeric(predproba_app > seuil_bayes)
@@ -2327,7 +2327,7 @@ df_plot <- data.frame(
 )
 # Taux de faux positifs, faux négatifs et erreur
 seuil_optimal <- seuils[which.min(df_plot$err)]
-cat("Seuil minimisant l’erreur :", seuil_optimal, "\n") # 0.4564565
+cat("Seuil minimisant l'erreur :", seuil_optimal, "\n") # 0.4564565
 
 # Graphique FP, FN, FPN
 plot_fp_fn_err <- ggplot(df_plot, aes(x = seuil)) +
@@ -2456,7 +2456,7 @@ print(conf_bayes_test)
 cat("Erreur test (seuil 0.5) :", err_bayes_test, "\n") # 0.13 
 
 # Récupération des prédictions du modèle Random Forest (sur données d'apprentissage)
-classe_pred <- rf_model$predicted # prédictions directement issues de l’apprentissage
+classe_pred <- rf_model$predicted # prédictions directement issues de l'apprentissage
 proba_rf <- rf_model$votes # probabilités pour chaque classe
 # Tracé et sauvegarde du graphique 
 df_plot_rf <- data.frame(
@@ -2464,7 +2464,7 @@ df_plot_rf <- data.frame(
   PC2 = acp_coords[, 2],
   ClasseReelle = df_app[, p],
   ClassePredite = classe_pred,
-  ProbaKecimen = proba_rf[, "Kecimen"]  # probabilité d’appartenir à la classe "Kecimen"
+  ProbaKecimen = proba_rf[, "Kecimen"]  # probabilité d'appartenir à la classe "Kecimen"
 )
 plot_rf <- ggplot(df_plot_rf, aes(x = PC1, y = PC2)) +
   geom_point(aes(color = ClasseReelle, shape = ClassePredite, alpha = ProbaKecimen), size = 3) +
