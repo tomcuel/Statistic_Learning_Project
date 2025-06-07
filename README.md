@@ -95,6 +95,6 @@ here are below some of the pictures that I got, of course to analyse them, there
 
 <img src="./README_pictures/svm_linear_projection_app.png" alt="svm_linear_projection_app" width="600" height="500"/>
 
-<img src="./README_pictures/model_full_ROC.png" alt="model_full_ROC" width="400" height="1000"/>
+<img src="./README_pictures/model_full_ROC.png" alt="model_full_ROC" width="300" height="900"/>
 
 <img src="./README_pictures/roc_combined.png" alt="roc_combined" width="400" height="300"/>
