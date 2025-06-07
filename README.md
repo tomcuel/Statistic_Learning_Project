@@ -79,18 +79,22 @@ xgboost
 
 
 ## Preview 
-here are below some of the pictures that I got : 
+here are below some of the pictures that I got, of course to analyse them, there must be all the datas that you can get when runnning the code or in the report : 
 
-<img src="./Preliminary_Analysis/boxplots_by_class.png" alt="boxplots_by_class" width="400" height="400"/>
+<img src="./README_pictures/boxplots_by_class.png" alt="boxplots_by_class" width="400" height="400"/>
 
-<img src="./Preliminary_Analysis/corrplot_matrix.png" alt="corrplot_matrix" width="400" height="350"/>
+<img src="./README_pictures/corrplot_matrix.png" alt="corrplot_matrix" width="400" height="350"/>
 
-<img src="./PCA/inertie.pdf" alt="inertie" width="300" height="250"/>
+<img src="./README_pictures/inertie.png" alt="inertie" width="300" height="250"/>
 
-<img src="./PCA/cow_plots_12_23.pdf" alt="cow_plots_12_23" width="500" height="500"/>
+<img src="./README_pictures/cow_plots_12_23.png" alt="cow_plots_12_23" width="500" height="500"/>
 
-<img src="./Agglomerative_Hierarchical_Clustering/dendrogram.pdf" alt="cow_plots_12_23" width="400" height="350"/>
+<img src="./README_pictures/dendrogram.png" alt="dendrogram" width="400" height="350"/>
 
+<img src="./README_pictures/model_full_projection_app.png" alt="model_full_projection_app" width="400" height="350"/>
 
-<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="250"/>
-<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="250"/>
+<img src="./README_pictures/svm_linear_projection_app.png" alt="svm_linear_projection_app" width="400" height="350"/>
+
+<img src="./README_pictures/model_full_ROC.png" alt="model_full_ROC" width="400" height="1000"/>
+
+<img src="./README_pictures/roc_combined.png" alt="roc_combined" width="400" height="300"/>
