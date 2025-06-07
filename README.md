@@ -85,7 +85,12 @@ here are below some of the pictures that I got :
 
 <img src="./Preliminary_Analysis/corrplot_matrix.png" alt="corrplot_matrix" width="400" height="350"/>
 
+<img src="./PCA/inertie.pdf" alt="inertie" width="300" height="250"/>
 
-<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="250"/>
+<img src="./PCA/cow_plots_12_23.pdf" alt="cow_plots_12_23" width="500" height="500"/>
+
+<img src="./Agglomerative_Hierarchical_Clustering/dendrogram.pdf" alt="cow_plots_12_23" width="400" height="350"/>
+
+
 <img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="250"/>
 <img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="250"/>
