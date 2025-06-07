@@ -70,33 +70,6 @@ xgboost
 ```
 
 
-
-## Running the code 
-You must have install R, either using it directly in VS-Code, or R-Studio (simpler but worst to code on I think)
-
-On top of that you must install packages before using them  by making the following commmandes
-```
-install.packages("to_use")
-library(to_use)
-```
-In this project, I used for different purpose the librairies just below :  
-```
-xts
-dplyr
-tidyr
-dygraphs
-lubridate
-caret
-ggplot2
-GGally
-corrplot
-nortest
-scales
-zoo
-mgcv
-forecast
-```
-
 ## Overview 
 * Dataset on dried grapes, including measurements of their physical dimensions
 * Preliminary unsupervised analysis using descriptive statistics, PCA, classification, and hierarchical clustering
