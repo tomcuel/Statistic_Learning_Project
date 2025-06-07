@@ -11,17 +11,17 @@ The goal is to classify raisins and distinguish between two different varieties 
 
 ## Path tree
 ```
-Real_Estate_Market_Analysis_Project /
-├── Datasets/
-│   └── datasets
+Statistic_Learning_Project /
+├── Agglomerative_Hierarchical_Clustering/
+├── Bonus_Models/
+├── Model_Choice/
+├── PCA/
+├── Preliminary_Analysis/
+├── ROC/
 │
-├── Results/
-│   ├── Data_Cleaning/                
-│   ├── Prediction/    
-│   ├── Raw_Graphs/
-│   └── Tendance_Saison/
-│
-└── R code
+├── Dataset
+├── R code
+└── Report
 ```
 
 ## Direct links to folders
