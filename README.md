@@ -81,7 +81,11 @@ xgboost
 ## Preview 
 here are below some of the pictures that I got : 
 
-<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="200"/>
-<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="200"/>
-<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="200"/>
-<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="200"/>
+<img src="./Preliminary_Analysis/boxplots_by_class.png" alt="boxplots_by_class" width="400" height="400"/>
+
+<img src="./Preliminary_Analysis/corrplot_matrix.png" alt="corrplot_matrix" width="400" height="350"/>
+
+
+<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="250"/>
+<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="250"/>
+<img src="./Results/Raw_Graphs/price_house_weekly_tendance.png" alt="price_house_weekly_tendance" width="400" height="250"/>
